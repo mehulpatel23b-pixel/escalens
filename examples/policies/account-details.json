@@ -1,0 +1,103 @@
+{
+  "UserDetailList": [
+    {
+      "UserName": "intern-sandbox",
+      "Arn": "arn:aws:iam::123456789012:user/intern-sandbox",
+      "GroupList": ["developers"],
+      "UserPolicyList": [
+        {
+          "PolicyName": "sandbox-notes",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Sid": "OwnPasswordOnly",
+                "Effect": "Allow",
+                "Action": ["iam:ChangePassword", "iam:GetUser"],
+                "Resource": "arn:aws:iam::123456789012:user/${aws:username}"
+              }
+            ]
+          }
+        }
+      ],
+      "AttachedManagedPolicies": [
+        {
+          "PolicyName": "ReadOnlyAccess",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {"Effect": "Allow", "Action": ["s3:Get*", "s3:List*"], "Resource": "*"}
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "UserName": "svc-legacy-automation",
+      "Arn": "arn:aws:iam::123456789012:user/svc-legacy-automation",
+      "UserPolicyList": [
+        {
+          "PolicyName": "legacy-admin-helper",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {"Effect": "Allow", "Action": "*", "Resource": "*"}
+            ]
+          }
+        }
+      ],
+      "AttachedManagedPolicies": []
+    }
+  ],
+  "RoleDetailList": [
+    {
+      "RoleName": "ci-deployer",
+      "Arn": "arn:aws:iam::123456789012:role/ci-deployer",
+      "RolePolicyList": [
+        {
+          "PolicyName": "deploy",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {"Effect": "Allow", "Action": ["ec2:RunInstances", "iam:PassRole"], "Resource": "*"}
+            ]
+          }
+        }
+      ],
+      "AttachedManagedPolicies": []
+    },
+    {
+      "RoleName": "billing-reader",
+      "Arn": "arn:aws:iam::123456789012:role/billing-reader",
+      "RolePolicyList": [],
+      "AttachedManagedPolicies": [
+        {
+          "PolicyName": "BillingReadOnly",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {"Effect": "Allow", "Action": "ce:Get*", "Resource": "*"}
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "GroupDetailList": [
+    {
+      "GroupName": "developers",
+      "GroupPolicyList": [
+        {
+          "PolicyName": "dev-tools",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {"Effect": "Allow", "Action": ["iam:AttachGroupPolicy", "sts:AssumeRole"], "Resource": "*"}
+            ]
+          }
+        }
+      ],
+      "AttachedManagedPolicies": []
+    }
+  ]
+}

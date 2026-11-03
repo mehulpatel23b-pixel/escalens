@@ -1,0 +1,75 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+develop-eggs/
+.eggs/
+*.egg-info/
+*.egg
+MANIFEST
+wheels/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# Type checking / linting caches
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+
+# ---------------------------------------------------------------------------
+# SECURITY: never commit real AWS material. escalens only reads policy
+# documents, but these patterns stop credentials from entering history at all.
+# ---------------------------------------------------------------------------
+.aws/
+credentials
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+*.tfstate
+*.tfstate.*
+terraform.tfstate*
+.terraform/
+*.tfvars
+
+# Real account exports people forget about
+account-authorization-details*.json
+!examples/policies/account-details.json
+*iam-export*.json
+*authz-details*.json
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+secrets.json
+*.secret
+
+# Editorial / local noise
+.DS_Store
+Thumbs.db
+*.log
+reports/
+out/
+.personal/

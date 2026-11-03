@@ -1,0 +1,3 @@
+# escalens has zero runtime dependencies - it is pure Python 3.9+ standard library.
+# This file exists so that `pip install -r requirements.txt` is a safe no-op in
+# CI pipelines and container builds that expect one.

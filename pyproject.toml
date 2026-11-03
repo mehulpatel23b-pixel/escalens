@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "escalens"
+version = "1.0.0"
+description = "Offline AWS IAM privilege-escalation auditor - reads policy JSON and reports escalation primitives. Zero dependencies, no credentials, no API calls."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Mehul Patel" }]
+keywords = ["aws", "iam", "security", "privilege-escalation", "cloud-security", "audit", "devsecops"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: System Administrators",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Security",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]
+escalens = "escalens.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/mehulpatel23b-pixel/escalens"
+Issues = "https://github.com/mehulpatel23b-pixel/escalens/issues"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

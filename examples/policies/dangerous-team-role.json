@@ -1,0 +1,35 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DeveloperBaseline",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:ListBucket", "logs:DescribeLogGroups"],
+      "Resource": "arn:aws:s3:::team-artifacts"
+    },
+    {
+      "Sid": "DeployHelper",
+      "Effect": "Allow",
+      "Action": ["lambda:CreateFunction", "lambda:UpdateFunctionCode"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "RoleHandoff",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "*"
+    },
+    {
+      "Sid": "EmergencyPolicyTweak",
+      "Effect": "Allow",
+      "Action": ["iam:CreatePolicyVersion", "iam:AttachUserPolicy", "iam:CreateAccessKey"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "GroupMembership",
+      "Effect": "Allow",
+      "Action": "iam:AddUserToGroup",
+      "Resource": "*"
+    }
+  ]
+}
